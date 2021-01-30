@@ -59,10 +59,10 @@ blocks:
     tags:
       phase: main
       type: read
-      instrument: true
     params:
       ratio: 5
       cl: <<read_cl:LOCAL_QUORUM>>
+      instrument: true
     statements:
       - main-select: |
          select * from <<keyspace:baselines>>.<<table:keyvalue>> where key={rw_key};
@@ -72,10 +72,10 @@ blocks:
     tags:
       phase: main
       type: write
-      instrument: true
     params:
       ratio: 5
       cl: <<write_cl:LOCAL_QUORUM>>
+      instrument: true
     statements:
       - main-insert: |
           insert into <<keyspace:baselines>>.<<table:keyvalue>>
