@@ -60,7 +60,7 @@ blocks:
       phase: main
       type: read
     params:
-      ratio: 5
+      ratio: <<read_ratio:5>>
       cl: <<read_cl:LOCAL_QUORUM>>
       instrument: true
     statements:
@@ -73,7 +73,7 @@ blocks:
       phase: main
       type: write
     params:
-      ratio: 5
+      ratio: <<write_ratio:5>>
       cl: <<write_cl:LOCAL_QUORUM>>
       instrument: true
     statements:
