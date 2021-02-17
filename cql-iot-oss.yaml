@@ -108,7 +108,6 @@ blocks:
     params:
       ratio: <<read_ratio:1>>
       cl: <<read_cl:LOCAL_QUORUM>>
-      instrument: true
     statements:
      - select-read: |
          select * from <<keyspace:baselines>>.<<table:iot>>
@@ -117,7 +116,7 @@ blocks:
        tags:
          name: select-read
        params:
-         instrument: TEMPLATE(instrument-reads,TEMPLATE(instrument,false))
+         instrument: true
 
   - tags:
       phase: main
@@ -125,7 +124,6 @@ blocks:
     params:
       ratio: <<write_ratio:9>>
       cl: <<write_cl:LOCAL_QUORUM>>
-      instrument: true
     statements:
      - insert-main: |
         insert into <<keyspace:baselines>>.<<table:iot>>
@@ -136,4 +134,4 @@ blocks:
        tags:
          name: insert-main
        params:
-         instrument: TEMPLATE(instrument-writes,TEMPLATE(instrument,false))
+         instrument: true
